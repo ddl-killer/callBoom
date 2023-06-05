@@ -3,9 +3,10 @@ from DrissionPage.configs.chromium_options import ChromiumOptions
 from DrissionPage.easy_set import set_paths
 
 chrome_path = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'  # 你的chrome.exe路径，可选
-set_paths(chrome_path=chrome_path)
 
 co = ChromiumOptions().use_system_user_path(False)
+co.set_paths(browser_path=chrome_path)
+
 page = ChromiumPage(co)
 with open('api.txt', 'r') as file:
     urls = file.readlines()
